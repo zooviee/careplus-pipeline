@@ -1,0 +1,25 @@
+# Environment variables
+.env
+airflow/.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# dbt
+dbt/careplus_dbt/target/
+dbt/careplus_dbt/dbt_packages/
+dbt/careplus_dbt/logs/
+profiles.yml
+
+# Airflow
+airflow/logs/
+airflow/plugins/
+
+
+# Mac
+.DS_Store

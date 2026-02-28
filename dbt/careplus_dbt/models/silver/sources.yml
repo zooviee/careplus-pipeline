@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: careplus
+    schema: bronze
+    tables:
+      - name: tickets
+      - name: logs

@@ -1,0 +1,33 @@
+[0m23:34:25.763585 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104652570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1067b5430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1067b54c0>]}
+
+
+============================== 23:34:25.766039 | 55a03781-854e-40e8-b2e5-85cd6b7eb464 ==============================
+[0m23:34:25.766039 [info ] [MainThread]: Running with dbt=1.11.6
+[0m23:34:25.766275 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'log_format': 'default', 'log_path': 'logs', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'partial_parse': 'True', 'empty': 'None', 'printer_width': '80', 'profiles_dir': '/Users/oluwaseyiakinsanya/.dbt', 'static_parser': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'fail_fast': 'False', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'version_check': 'True', 'invocation_command': 'dbt init careplus_dbt', 'warn_error': 'None', 'write_json': 'True', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False'}
+[0m23:34:25.774196 [debug] [MainThread]: Starter project path: /Users/oluwaseyiakinsanya/.pyenv/versions/3.12.11/lib/python3.12/site-packages/dbt/include/starter_project
+[0m23:34:25.776953 [info ] [MainThread]: 
+Your new dbt project "careplus_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m23:34:25.777097 [info ] [MainThread]: Setting up your profile.
+[0m23:34:45.089042 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m23:34:45.089283 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m23:34:45.089401 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m23:36:06.642388 [info ] [MainThread]: Profile careplus_dbt written to /Users/oluwaseyiakinsanya/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m23:36:06.645084 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 100.913956, "process_in_blocks": "0", "process_kernel_time": 0.141052, "process_mem_max_rss": "130383872", "process_out_blocks": "0", "process_user_time": 0.621811}
+[0m23:36:06.646023 [debug] [MainThread]: Command `dbt init` succeeded at 23:36:06.645923 after 100.92 seconds
+[0m23:36:06.646333 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078b3800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a8af8f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10adab440>]}
+[0m23:36:06.646660 [debug] [MainThread]: Flushing usage events
+[0m23:36:06.883898 [debug] [MainThread]: An error was encountered while trying to flush usage events
