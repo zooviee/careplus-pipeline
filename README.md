@@ -26,41 +26,6 @@ A production-grade end-to-end data pipeline that ingests support ticket data fro
 ## Architecture
 ![CarePlus Data Pipeline Architecture](./docs/architecture.svg)
 
-```
-[MySQL Database]          [.log Files (July 2025)]
-       |                            |
-       v                            v
-  Python Extract               Python Parse
-       |                            |
-       v                            v
- [Amazon S3]               [Amazon S3]
- tickets/                  logs/
- support_tickets.csv       support_logs_2025-07-*.log
-       |                            |
-       └──────────┬─────────────────┘
-                  v
-        [Snowflake — Bronze Layer]
-        careplus.bronze.tickets
-        careplus.bronze.logs
-                  |
-                  v
-        [dbt — Silver Layer]
-        careplus.silver.stg_tickets
-        careplus.silver.stg_logs
-                  |
-                  v
-        [dbt — Gold Layer]
-        careplus.gold.fct_tickets
-        careplus.gold.fct_logs
-        careplus.gold.fct_ticket_log_summary
-                  |
-                  v
-        [BI / Analytics Tools]
-
-  All orchestrated by Apache Airflow (Docker)
-  Scheduled: every day at 2AM
-```
-
 ---
 
 ## Tech Stack
