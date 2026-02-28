@@ -23,6 +23,8 @@ A production-grade end-to-end data pipeline that ingests support ticket data fro
 ---
 
 ## Architecture Overview
+## Architecture
+![CarePlus Data Pipeline Architecture](./docs/architecture.svg)
 
 ```
 [MySQL Database]          [.log Files (July 2025)]
@@ -200,7 +202,7 @@ This pipeline follows the **Bronze → Silver → Gold** medallion architecture 
 
 ### Step 3 — dbt Silver
 1. `stg_tickets` — normalizes dirty priority values (`Lw` → `Low`, `Hgh` → `High`), nulls invalid `num_interactions`, adds `resolution_time_mins` and `is_open` derived columns
-2. `stg_logs` — normalizes inconsistent log levels (`INF0` → `INFO`, `DEBG` → `DEBUG`, `warnING` → `WARNING`), nulls negative `response_time_ms`, removes duplicate log entries using `QUALIFY ROW_NUMBER()`
+2. `stg_logs` — normalizes inconsistent log levels (`INF0` → `INFO`, `DEBG` → `DEBUG`, `EROR` → `ERROR`, `warnING` → `WARNING`), nulls negative `response_time_ms`, removes duplicate log entries using `QUALIFY ROW_NUMBER()`
 
 ### Step 4 — dbt Gold
 1. `fct_tickets` — adds `created_date`, `created_day_of_week`, `created_hour`, and `resolution_bucket` columns
