@@ -425,9 +425,9 @@ dbt run --select gold
 
 ## Airflow DAG
 
-**DAG ID:** `careplus_pipeline`
-**Schedule:** `0 2 * * *` (every day at 2AM)
-**File:** `airflow/dags/careplus_pipeline.py`
+- **DAG ID:** `careplus_pipeline`
+- **Schedule:** `0 2 * * *` (every day at 2AM)
+- **File:** `airflow/dags/careplus_pipeline.py`
 
 ### Task Graph
 ```
@@ -491,3 +491,8 @@ MYSQL_PASSWORD=your-mysql-password
 > **Note:** For Airflow (Docker), these variables are also defined in `airflow/docker-compose.yaml` under `&airflow-common-env` since Docker containers cannot read the local `.env` file directly. Use `MYSQL_HOST=host.docker.internal` inside Docker to connect to MySQL running on your Mac.
 
 > **Security:** Never commit `.env` files to version control. Both `.env` and `venv/` are included in `.gitignore`.
+
+
+## Author
+
+Oluwaseyi Akinsanya
