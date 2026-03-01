@@ -488,9 +488,7 @@ MYSQL_USER=root
 MYSQL_PASSWORD=your-mysql-password
 ```
 
-> **Note:** For Airflow (Docker), these variables are also defined in `airflow/docker-compose.yaml` under `&airflow-common-env` since Docker containers cannot read the local `.env` file directly. Use `MYSQL_HOST=host.docker.internal` inside Docker to connect to MySQL running on your Mac.
-
-> **Security:** Never commit `.env` files to version control. Both `.env` and `venv/` are included in `.gitignore`.
+> **Note:** For Airflow (Docker), these variables are also defined in `airflow/docker-compose.yaml` under `&airflow-common-env` since Docker containers cannot read the local `.env` file directly. Use `MYSQL_HOST=host.docker.internal` inside Docker to connect to MySQL running on your local machine.
 
 
 ## Author
