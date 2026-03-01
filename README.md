@@ -86,8 +86,8 @@ careplus_pipeline/
 ## Data Sources
 
 ### 1. MySQL — Support Tickets
-**Database:** `careplus_support_db`
-**Table:** `support_tickets`
+- **Database:** `careplus_support_db`
+- **Table:** `support_tickets`
 
 | Column | Type | Description |
 |---|---|---|
@@ -107,9 +107,9 @@ careplus_pipeline/
 ---
 
 ### 2. Log Files — Application Events
-**Format:** Custom multi-line `.log` files
-**Coverage:** July 1–31, 2025 (31 files, one per day)
-**Location:** `s3://careplus-pipeline-seyi/logs/`
+- **Format:** Custom multi-line `.log` files
+- **Coverage:** July 1–31, 2025 (31 files, one per day)
+- **Location:** `s3://careplus-pipeline-seyi/logs/`
 
 Each log entry is a 6-line block separated by `---`:
 
