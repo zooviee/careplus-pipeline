@@ -166,7 +166,7 @@ This pipeline follows the **Bronze → Silver → Gold** medallion architecture 
 4. On subsequent runs, the script skips loading if data already exists (one-time historical load)
 
 ### Step 3 — dbt Silver
-1. `stg_tickets` — normalizes dirty priority values (`Lw` → `Low`, `Hgh` → `High`), nulls invalid `num_interactions`, adds `resolution_time_mins` and `is_open` derived columns
+1. `stg_tickets` — normalizes dirty priority values (`Lw` → `Low`, `Medum` → `Medium`, `Hgh` → `High`), nulls invalid `num_interactions`, adds `resolution_time_mins` and `is_open` derived columns
 2. `stg_logs` — normalizes inconsistent log levels (`INF0` → `INFO`, `DEBG` → `DEBUG`, `EROR` → `ERROR`, `warnING` → `WARNING`), nulls negative `response_time_ms`, removes duplicate log entries using `QUALIFY ROW_NUMBER()`
 
 ### Step 4 — dbt Gold
@@ -208,7 +208,7 @@ One row per log event, deduplicated and enriched.
 | Column | Description |
 |---|---|
 | timestamp | Log event timestamp |
-| log_level | Normalized level (INFO/DEBUG/WARNING) |
+| log_level | Normalized level (INFO/DEBUG/ERROR/WARNING) |
 | service | Service that generated the log |
 | ticket_id | Associated ticket |
 | session_id | Session identifier |
@@ -254,10 +254,10 @@ One row per ticket with aggregated log metrics — the primary analytics table.
 
 | Issue | Source | Bronze | Silver Fix |
 |---|---|---|---|
-| Inconsistent log levels (`INF0`, `DEBG`, `warnING`) | logs | Raw as-is | Normalized to `INFO`, `DEBUG`, `WARNING` |
+| Inconsistent log levels (`INF0`, `DEBG`, `EROR` `warnING`) | logs | Raw as-is | Normalized to `INFO`, `DEBUG`, `ERROR`, `WARNING` |
 | Negative response times (e.g. `-749ms`) | logs | Raw as-is | Nulled out |
 | Duplicate log entries (same timestamp + ticket + IP) | logs | Raw as-is | Removed with `QUALIFY ROW_NUMBER()` |
-| Invalid priority values (`Lw`, `Hgh`) | tickets | Raw as-is | Normalized to `Low`, `High` |
+| Invalid priority values (`Lw`, `Medum`, `Hgh`) | tickets | Raw as-is | Normalized to `Low`, `Medium`, `High` |
 | Invalid num_interactions (`-999999`) | tickets | Raw as-is | Nulled out |
 | NULL resolved_at on open tickets | tickets | Raw as-is | Preserved as NULL, `is_open = TRUE` |
 
